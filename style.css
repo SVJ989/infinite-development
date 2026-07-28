@@ -420,3 +420,46 @@ nav ul li a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================
+   FEATURED PRODUCTS
+========================= */
+
+.section-subtitle {
+    color: #888;
+
+    margin-top: -30px;
+    margin-bottom: 45px;
+
+    font-size: 16px;
+}
+
+.product-icon {
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.product-btn {
+    display: inline-block;
+
+    padding: 11px 20px;
+
+    background: #1e90ff;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    transition: 0.25s;
+}
+
+.product-btn:hover {
+    background: #1478d4;
+
+    transform: translateY(-2px);
+}
