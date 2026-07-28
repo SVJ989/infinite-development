@@ -1,17 +1,21 @@
 /* =========================
-   GLOBAL STYLE
+   BASIS
 ========================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:#080808;
-    color:white;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: white;
 }
 
 
@@ -19,296 +23,400 @@ body{
    NAVBAR
 ========================= */
 
-.navbar{
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 10%;
-    background:#050505;
-    border-bottom:1px solid #151515;
+nav {
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 7%;
+
+    background: #080808;
+    border-bottom: 1px solid #181818;
 }
 
 
-.logo{
-    display:flex;
-    align-items:center;
+/* LOGO */
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    margin-right: 60px;
 }
 
-.logo img{
-    height:70px;
-    width:auto;
-}
-
-
-.nav-links{
-    display:flex;
-    gap:30px;
-    list-style:none;
-}
-
-
-.nav-links a{
-    color:white;
-    text-decoration:none;
-    font-size:16px;
-    transition:0.3s;
+.logo span {
+    color: #1e90ff;
 }
 
 
-.nav-links a:hover{
-    color:#1e90ff;
+/* NAVIGATIE */
+
+nav ul {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    flex: 1;
 }
 
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    color: #d6d6d6;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.25s;
+}
+
+nav ul li a:hover {
+    color: #1e90ff;
+}
+
+
+/* DISCORD KNOP */
+
+.discordBtn {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    background: #1e90ff;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition: 0.25s;
+}
+
+.discordBtn:hover {
+    background: #1478d4;
+
+    transform: translateY(-2px);
+}
 
 
 /* =========================
-   HERO SECTION
+   HERO
 ========================= */
 
-.hero{
+.hero {
+    min-height: 85vh;
 
-    min-height:90vh;
+    display: flex;
+    align-items: center;
 
-    display:flex;
-    align-items:center;
-
-    padding:0 10%;
+    padding: 0 10%;
 
     background:
-    linear-gradient(
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.9)
-    );
-
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(30, 144, 255, 0.12),
+            transparent 35%
+        ),
+        #080808;
 }
 
-
-.hero-content{
-
-    max-width:750px;
-
+.hero-content {
+    max-width: 750px;
 }
 
+.hero h1 {
+    font-size: 68px;
 
-.hero h1{
+    line-height: 1.08;
 
-    font-size:70px;
-    line-height:1.1;
+    font-weight: 800;
 
-    color:white;
-
+    color: white;
 }
 
+.hero h1 span {
+    display: block;
 
-.hero h1 span{
-
-    color:#1e90ff;
-
+    color: #1e90ff;
 }
 
+.hero p {
+    margin-top: 25px;
 
-.hero p{
+    max-width: 680px;
 
-    margin-top:25px;
+    color: #bdbdbd;
 
-    color:#cfcfcf;
+    font-size: 18px;
 
-    font-size:20px;
-
-    line-height:1.6;
-
+    line-height: 1.7;
 }
-
 
 
 /* =========================
-   BUTTONS
+   HERO BUTTONS
 ========================= */
 
-.buttons{
+.buttons {
+    display: flex;
 
-    margin-top:35px;
+    gap: 15px;
 
+    margin-top: 35px;
 }
-
 
 .btn,
-.btn2{
+.btn2 {
+    display: inline-block;
 
-    display:inline-block;
+    padding: 14px 28px;
 
-    padding:15px 35px;
+    border-radius: 7px;
 
-    border-radius:8px;
+    text-decoration: none;
 
-    text-decoration:none;
+    font-size: 15px;
 
-    font-size:16px;
-
-    transition:0.3s;
-
+    transition: 0.25s;
 }
 
+.btn {
+    background: #1e90ff;
 
-.btn{
-
-    background:#1e90ff;
-
-    color:white;
-
-    margin-right:15px;
-
+    color: white;
 }
 
+.btn:hover {
+    background: #1478d4;
 
-.btn:hover{
-
-    transform:scale(1.05);
-
+    transform: translateY(-2px);
 }
 
+.btn2 {
+    border: 1px solid #333;
 
+    color: white;
 
-.btn2{
-
-    border:2px solid #1e90ff;
-
-    color:white;
-
+    background: #111;
 }
 
+.btn2:hover {
+    border-color: #1e90ff;
 
-.btn2:hover{
-
-    background:#1e90ff;
-
+    color: #1e90ff;
 }
-
 
 
 /* =========================
-   FEATURED PRODUCTS
+   SERVICES
 ========================= */
 
-.products{
+.products {
+    padding: 90px 10%;
 
-    padding:80px 10%;
+    background: #0b0b0b;
 
-    text-align:center;
-
+    text-align: center;
 }
 
+.products h2 {
+    font-size: 38px;
 
-.products h2{
-
-    font-size:40px;
-
-    margin-bottom:40px;
-
-    color:white;
-
+    margin-bottom: 50px;
 }
 
+.cards {
+    display: flex;
 
-.product-container{
+    justify-content: center;
 
-    display:flex;
+    gap: 25px;
 
-    gap:25px;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
+    flex-wrap: wrap;
 }
 
+.card {
+    width: 31%;
+    min-width: 280px;
 
-.product-card{
+    padding: 35px 30px;
 
-    background:#111;
+    background: #111;
 
-    border:1px solid #222;
+    border: 1px solid #202020;
 
-    padding:30px;
+    border-radius: 12px;
 
-    width:300px;
+    text-align: left;
 
-    border-radius:15px;
-
-    transition:0.3s;
-
+    transition: 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-6px);
 
-.product-card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:#1e90ff;
-
+    border-color: #1e90ff;
 }
 
+.card h3 {
+    font-size: 20px;
 
-.product-card h3{
-
-    color:#1e90ff;
-
-    margin-bottom:15px;
-
+    margin-bottom: 15px;
 }
 
+.card p {
+    color: #aaa;
 
-.product-card p{
+    line-height: 1.6;
 
-    color:#ccc;
-
+    margin-bottom: 25px;
 }
 
+.card button {
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #1e90ff;
+
+    color: white;
+
+    cursor: pointer;
+}
 
 
 /* =========================
-   FOOTER
+   FEATURES
 ========================= */
 
-footer{
+.features {
+    padding: 90px 10%;
 
-    padding:30px;
+    text-align: center;
+}
 
-    text-align:center;
+.features h2 {
+    font-size: 38px;
 
-    background:#050505;
+    margin-bottom: 50px;
+}
 
-    color:#777;
+.featureBox {
+    display: grid;
 
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.featureBox > div {
+    padding: 25px;
+
+    background: #111;
+
+    border: 1px solid #202020;
+
+    border-radius: 10px;
+}
+
+.featureBox h3 {
+    margin-bottom: 10px;
+}
+
+.featureBox p {
+    color: #999;
+
+    line-height: 1.5;
 }
 
 
-
 /* =========================
-   MOBILE
+   MOBIEL
 ========================= */
 
-@media(max-width:800px){
+@media (max-width: 1000px) {
 
-    .hero h1{
-
-        font-size:45px;
-
+    nav {
+        padding: 0 4%;
     }
 
-
-    .nav-links{
-
-        display:none;
-
+    .logo {
+        margin-right: 30px;
     }
 
-
-    .hero{
-
-        padding:0 5%;
-
+    nav ul {
+        gap: 15px;
     }
 
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .featureBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 750px) {
+
+    nav {
+        height: auto;
+
+        padding: 20px;
+
+        flex-wrap: wrap;
+
+        gap: 20px;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .hero {
+        padding: 80px 7%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .featureBox {
+        grid-template-columns: 1fr;
+    }
 }
