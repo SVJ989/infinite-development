@@ -1,1 +1,152 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
+body{
+
+    background:#070b16;
+
+    color:white;
+
+    overflow-x:hidden;
+}
+
+nav{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:25px 10%;
+
+    position:fixed;
+
+    top:0;
+
+    backdrop-filter:blur(12px);
+
+    background:rgba(0,0,0,.35);
+
+}
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#4ea3ff;
+}
+
+nav ul{
+
+    display:flex;
+
+    gap:40px;
+
+    list-style:none;
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+nav a:hover{
+
+    color:#4ea3ff;
+}
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+}
+
+.hero h1{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+}
+
+.hero p{
+
+    max-width:700px;
+
+    color:#cfcfcf;
+
+    font-size:20px;
+
+    line-height:1.7;
+}
+
+.buttons{
+
+    margin-top:45px;
+
+    display:flex;
+
+    gap:20px;
+}
+
+.btn,.btn2{
+
+    padding:16px 40px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn{
+
+    background:#1d7dff;
+
+    color:white;
+}
+
+.btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 0 25px #1d7dff;
+}
+
+.btn2{
+
+    border:2px solid #1d7dff;
+
+    color:white;
+}
+
+.btn2:hover{
+
+    background:#1d7dff;
+}
