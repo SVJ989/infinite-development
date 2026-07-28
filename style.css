@@ -416,3 +416,137 @@ nav ul li a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================
+   SHOP PAGE
+========================= */
+
+.shop-hero {
+    padding: 110px 10% 80px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(30, 144, 255, 0.12),
+            transparent 45%
+        ),
+        #080808;
+}
+
+.shop-hero h1 {
+    font-size: 60px;
+    font-weight: 800;
+}
+
+.shop-hero h1 span {
+    color: #1e90ff;
+}
+
+.shop-hero p {
+    margin-top: 20px;
+
+    color: #999;
+
+    font-size: 18px;
+}
+
+.shop-products {
+    padding: 70px 10% 100px;
+
+    background: #0b0b0b;
+}
+
+.shop-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.shop-card {
+    padding: 35px;
+
+    background: #111;
+
+    border: 1px solid #202020;
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+.shop-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #1e90ff;
+
+    box-shadow: 0 10px 35px rgba(30, 144, 255, 0.08);
+}
+
+.shop-icon {
+    font-size: 42px;
+
+    margin-bottom: 20px;
+}
+
+.shop-card h2 {
+    font-size: 22px;
+
+    margin-bottom: 15px;
+}
+
+.shop-card p {
+    color: #999;
+
+    line-height: 1.6;
+
+    min-height: 75px;
+}
+
+.shop-price {
+    color: #1e90ff;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    margin: 25px 0;
+}
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    background: #080808;
+
+    border-top: 1px solid #181818;
+
+    color: #666;
+}
+
+
+/* SHOP MOBIEL */
+
+@media (max-width: 1000px) {
+
+    .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .shop-hero h1 {
+        font-size: 45px;
+    }
+
+}
