@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment | Infinite Development</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Infinite <span>Development</span>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+
+        <a
+            class="discordBtn"
+            href="https://discord.com/"
+            target="_blank">
+            Discord
+        </a>
+
+    </nav>
+
+
+    <main class="payment-page">
+
+        <div class="payment-container">
+
+            <div class="payment-icon">
+                💳
+            </div>
+
+            <h1>
+                Complete your <span>payment</span>
+            </h1>
+
+            <p class="payment-description">
+                Your order has been received.
+                Complete your payment using Tikkie.
+            </p>
+
+
+            <div class="payment-order">
+
+                <div>
+                    <span>Order total</span>
+
+                    <strong id="payment-total">
+                        €0,00
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <a
+                id="tikkie-button"
+                class="tikkie-button"
+                href="#"
+                target="_blank">
+
+                💳 Pay with Tikkie
+
+            </a>
+
+
+            <a
+                class="payment-discord"
+                href="https://discord.com/"
+                target="_blank">
+
+                🎫 Continue to Discord
+
+            </a>
+
+
+            <p class="payment-note">
+                After completing your payment, continue to Discord
+                to finish your order.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const order = JSON.parse(
+            localStorage.getItem("lastOrder")
+        );
+
+        if (order) {
+
+            document.getElementById("payment-total").textContent =
+                "€" + Number(order.total).toFixed(2);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
