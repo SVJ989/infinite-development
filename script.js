@@ -315,12 +315,7 @@ async function placeOrder() {
 
         localStorage.setItem("lastOrder", JSON.stringify(order));
 
-        showOrderPopup(
-            "Order Successful!",
-            "Your order has been received. Continue to Discord to complete your purchase.",
-            total,
-            true
-        );
+      window.location.href = "payment.html";
 
     } catch (error) {
 
