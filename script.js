@@ -335,6 +335,86 @@ async function placeOrder() {
     }
 }
 
+function showOrderPopup(title, message, total, success) {
+
+    const oldPopup = document.querySelector(".order-popup-overlay");
+
+    if (oldPopup) {
+        oldPopup.remove();
+    }
+
+    const popup = document.createElement("div");
+
+    popup.className = "order-popup-overlay";
+
+    popup.innerHTML = `
+        <div class="order-popup">
+
+            <div class="order-popup-icon">
+                ${success ? "✓" : "!"}
+            </div>
+
+            <h2>${title}</h2>
+
+            <p>${message}</p>
+
+            ${
+                total !== null
+                ? `
+                    <div class="order-popup-total">
+                        <span>ORDER TOTAL</span>
+                        <strong>€${Number(total).toFixed(2)}</strong>
+                    </div>
+                `
+                : ""
+            }
+
+            <div class="order-popup-buttons">
+
+                ${
+                    success
+                    ? `
+                        <button
+                            class="order-popup-discord"
+                            onclick="window.open(discordBuyLink, '_blank')">
+                            Continue to Discord
+                        </button>
+                    `
+                    : ""
+                }
+
+                <button
+                    class="order-popup-close"
+                    onclick="closeOrderPopup()">
+                    ${success ? "Close" : "Try Again"}
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+        popup.classList.add("show");
+    }, 10);
+}
+
+
+function closeOrderPopup() {
+
+    const popup = document.querySelector(".order-popup-overlay");
+
+    if (!popup) return;
+
+    popup.classList.remove("show");
+
+    setTimeout(() => {
+        popup.remove();
+    }, 300);
+}
+
 displayCart();
 updateCartCount();
 displayCheckout();
