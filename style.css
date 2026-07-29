@@ -1427,6 +1427,8 @@ footer {
         flex-direction: column;
     }
 }
+
+```css
 /* =========================
    PAYMENT PAGE
 ========================= */
@@ -1435,14 +1437,14 @@ footer {
     min-height: calc(100vh - 90px);
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     padding: 80px 20px;
 
     background:
         radial-gradient(
-            circle at center,
+            circle at 50% 20%,
             rgba(30, 144, 255, 0.14),
             transparent 45%
         ),
@@ -1451,21 +1453,21 @@ footer {
 
 .payment-container {
     width: 100%;
-    max-width: 520px;
+    max-width: 500px;
 
     padding: 45px;
 
     text-align: center;
 
-    background: #101010;
+    background: #111;
 
     border: 1px solid #222;
 
     border-radius: 18px;
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.5),
-        0 0 50px rgba(30, 144, 255, 0.06);
+        0 20px 70px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(30, 144, 255, 0.05);
 }
 
 .payment-icon {
@@ -1480,7 +1482,7 @@ footer {
 
     background: rgba(30, 144, 255, 0.12);
 
-    border: 1px solid rgba(30, 144, 255, 0.5);
+    border: 1px solid rgba(30, 144, 255, 0.4);
 
     border-radius: 50%;
 
@@ -1488,7 +1490,7 @@ footer {
 }
 
 .payment-container h1 {
-    font-size: 34px;
+    font-size: 36px;
 
     margin-bottom: 15px;
 }
@@ -1527,7 +1529,11 @@ footer {
 
     color: #777;
 
-    font-size: 13px;
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
 
     margin-bottom: 7px;
 }
@@ -1535,7 +1541,7 @@ footer {
 .payment-order strong {
     color: #1e90ff;
 
-    font-size: 28px;
+    font-size: 30px;
 }
 
 
@@ -1568,30 +1574,32 @@ footer {
 
     transform: translateY(-2px);
 
-    box-shadow: 0 8px 25px rgba(30, 144, 255, 0.25);
+    box-shadow: 0 8px 25px rgba(30, 144, 255, 0.2);
 }
 
 
-/* DISCORD */
+/* DISCORD BUTTON */
 
 .payment-discord {
     display: block;
 
-    margin-top: 12px;
+    width: 100%;
 
-    padding: 14px;
+    padding: 15px;
+
+    margin-top: 12px;
 
     background: #181818;
 
-    border: 1px solid #292929;
-
     color: #ddd;
+
+    border: 1px solid #292929;
 
     text-decoration: none;
 
     border-radius: 8px;
 
-    font-size: 14px;
+    font-size: 15px;
 
     font-weight: 600;
 
@@ -1599,22 +1607,24 @@ footer {
 }
 
 .payment-discord:hover {
+    color: #1e90ff;
+
     border-color: #1e90ff;
 
-    color: #1e90ff;
+    transform: translateY(-2px);
 }
 
 
-/* NOTE */
+/* INFO */
 
 .payment-note {
     margin-top: 22px;
 
     color: #666;
 
-    font-size: 12px;
+    font-size: 13px;
 
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 
@@ -1630,4 +1640,9 @@ footer {
         font-size: 28px;
     }
 
+    .payment-order strong {
+        font-size: 26px;
+    }
+
 }
+```
