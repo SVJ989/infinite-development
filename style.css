@@ -1298,3 +1298,132 @@ footer {
     font-size: 13px;
     line-height: 1.5;
 }
+/* =========================
+   ORDER POPUP
+========================= */
+
+.order-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.order-popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.order-popup {
+    width: 90%;
+    max-width: 450px;
+    background: #111827;
+    border: 1px solid rgba(30, 144, 255, 0.5);
+    border-radius: 18px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(30, 144, 255, 0.25);
+    transform: translateY(25px) scale(0.95);
+    transition: 0.3s ease;
+}
+
+.order-popup-overlay.show .order-popup {
+    transform: translateY(0) scale(1);
+}
+
+.order-popup-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba(30, 144, 255, 0.15);
+    border: 2px solid #1e90ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e90ff;
+    font-size: 32px;
+}
+
+.order-popup h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.order-popup p {
+    color: #aeb8c7;
+    line-height: 1.6;
+}
+
+.order-popup-total {
+    margin: 25px 0;
+    padding: 15px;
+    background: rgba(30, 144, 255, 0.08);
+    border-radius: 10px;
+}
+
+.order-popup-total span {
+    display: block;
+    color: #8d98a8;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.order-popup-total strong {
+    color: #1e90ff;
+    font-size: 25px;
+}
+
+.order-popup-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.order-popup-buttons button {
+    flex: 1;
+    padding: 13px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.order-popup-discord {
+    background: #1e90ff;
+    color: white;
+}
+
+.order-popup-discord:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 144, 255, 0.3);
+}
+
+.order-popup-close {
+    background: #252b36;
+    color: #cbd5e1;
+}
+
+.order-popup-close:hover {
+    background: #303846;
+}
+
+@media (max-width: 500px) {
+    .order-popup {
+        padding: 25px;
+    }
+
+    .order-popup-buttons {
+        flex-direction: column;
+    }
+}
