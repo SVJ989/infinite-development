@@ -1,27 +1,26 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+const discordBuyLink =
+    "https://discordapp.com/channels/1530386963364843632/1530837263158743080/1531283430321553550";
+
+
 function addToCart(name, price) {
 
     const existingProduct = cart.find(product => product.name === name);
 
     if (existingProduct) {
-
         existingProduct.quantity++;
-
     } else {
-
         cart.push({
             name: name,
             price: price,
             quantity: 1
         });
-
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
     showCartNotification(name);
-
     updateCartCount();
 }
 
@@ -33,6 +32,7 @@ function removeFromCart(name) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     displayCart();
+    updateCartCount();
 }
 
 
@@ -52,6 +52,7 @@ function changeQuantity(name, amount) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     displayCart();
+    updateCartCount();
 }
 
 
@@ -75,7 +76,9 @@ function displayCart() {
             </div>
         `;
 
-        totalElement.textContent = "0.00";
+        if (totalElement) {
+            totalElement.textContent = "0.00";
+        }
 
         return;
     }
@@ -88,7 +91,6 @@ function displayCart() {
         total += productTotal;
 
         container.innerHTML += `
-
             <div class="cart-item">
 
                 <div>
@@ -121,12 +123,12 @@ function displayCart() {
                 </button>
 
             </div>
-
         `;
-
     });
 
-    totalElement.textContent = total.toFixed(2);
+    if (totalElement) {
+        totalElement.textContent = total.toFixed(2);
+    }
 }
 
 
@@ -158,9 +160,6 @@ function checkout() {
     window.location.href = "checkout.html";
 }
 
-
-displayCart();
-updateCartCount();
 
 function showCartNotification(name) {
 
@@ -195,6 +194,8 @@ function showCartNotification(name) {
 
     }, 3500);
 }
+
+
 function displayCheckout() {
 
     const container = document.getElementById("checkout-items");
@@ -220,6 +221,7 @@ function displayCheckout() {
         return;
     }
 
+
     cart.forEach(product => {
 
         const productTotal = product.price * product.quantity;
@@ -240,10 +242,76 @@ function displayCheckout() {
 
             </div>
         `;
-
     });
 
     totalElement.textContent = total.toFixed(2);
 }
 
+
+/* =========================
+   DISCORD ORDER
+========================= */
+
+function placeOrder() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty!");
+
+        return;
+    }
+
+    let orderText = "🛒 **NEW ORDER**%0A%0A";
+
+    let total = 0;
+
+    cart.forEach(product => {
+
+        const productTotal = product.price * product.quantity;
+
+        total += productTotal;
+
+        orderText +=
+            `• ${product.name} × ${product.quantity} — €${productTotal.toFixed(2)}%0A`;
+    });
+
+    orderText += `%0A💰 **Total: €${total.toFixed(2)}**`;
+
+    /*
+     * We bewaren de bestelling lokaal.
+     * Zo kan de informatie beschikbaar blijven wanneer
+     * de klant terugkomt op de website.
+     */
+
+    localStorage.setItem(
+        "lastOrder",
+        JSON.stringify({
+            products: cart,
+            total: total
+        })
+    );
+
+    /*
+     * Open het Rimpllee Buy-ticketpaneel.
+     */
+
+    window.open(discordBuyLink, "_blank");
+
+    /*
+     * Laat de klant weten wat hij moet doen.
+     */
+
+    setTimeout(() => {
+
+        alert(
+            "Your order is ready!\\n\\n" +
+            "Discord will open. Click the 💵 Buy button in our ticket panel and send the order details shown on this page."
+        );
+
+    }, 500);
+}
+
+
+displayCart();
+updateCartCount();
 displayCheckout();
