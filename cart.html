@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cart | Infinite Development</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        Infinite <span>Development</span>
+    </div>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+    </ul>
+
+    <a href="cart.html" class="discordBtn">
+        🛒 Cart
+    </a>
+
+</nav>
+
+
+<section class="cart-page">
+
+    <h1>Your <span>Cart</span></h1>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-total">
+        Total: €<span id="cart-total">0.00</span>
+    </div>
+
+    <div class="cart-buttons">
+
+        <a href="shop.html" class="btn2">
+            Continue Shopping
+        </a>
+
+        <button class="btn" onclick="checkout()">
+            Checkout
+        </button>
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
