@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | Infinite Development</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        Infinite <span>Development</span>
+    </div>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html">Cart</a></li>
+    </ul>
+
+    <a href="https://discord.gg/aWW6xKK9N"
+       class="discordBtn"
+       target="_blank">
+        Join Discord
+    </a>
+
+</nav>
+
+
+<section class="checkout-page">
+
+    <h1>Complete Your <span>Order</span></h1>
+
+    <div class="checkout-box">
+
+        <h2>Your Information</h2>
+
+        <form id="checkout-form">
+
+            <label>
+                Name
+            </label>
+
+            <input
+                type="text"
+                id="customer-name"
+                placeholder="Your name"
+                required
+            >
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="customer-email"
+                placeholder="you@example.com"
+                required
+            >
+
+
+            <label>
+                Discord Username
+            </label>
+
+            <input
+                type="text"
+                id="discord-name"
+                placeholder="username"
+                required
+            >
+
+
+            <h2>Order</h2>
+
+            <div id="checkout-items"></div>
+
+            <div class="checkout-total">
+                Total: €<span id="checkout-total">0.00</span>
+            </div>
+
+            <button type="submit" class="checkout-btn">
+                Continue to Payment
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
