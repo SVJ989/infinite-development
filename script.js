@@ -2,10 +2,6 @@ const discordBuyLink = "https://discordapp.com/channels/1530386963364843632/1530
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const discordBuyLink =
-    "https://discordapp.com/channels/1530386963364843632/1530837263158743080/1531283430321553550";
-
-
 function addToCart(name, price) {
 
     const existingProduct = cart.find(product => product.name === name);
