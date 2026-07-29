@@ -1,4 +1,5 @@
-const discordBuyLink = "HIER_JOUW_RIMPLEE_BUY_LINK";
+const discordBuyLink = "https://discordapp.com/channels/1530386963364843632/1530837263158743080/1531283430321553550";
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const discordBuyLink =
