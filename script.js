@@ -1,3 +1,4 @@
+const discordBuyLink = "HIER_JOUW_RIMPLEE_BUY_LINK";
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const discordBuyLink =
