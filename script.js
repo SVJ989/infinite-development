@@ -14,6 +14,10 @@ try {
    ADD TO CART
 ========================= */
 
+function generateOrderId() {
+    return "ID-" + Date.now().toString().slice(-6);
+}
+
 function addToCart(name, price) {
 
     price = Number(price);
