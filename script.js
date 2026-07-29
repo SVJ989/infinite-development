@@ -155,8 +155,7 @@ function checkout() {
         return;
     }
 
-    alert("Checkout coming next!");
-
+    window.location.href = "checkout.html";
 }
 
 
