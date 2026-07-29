@@ -195,3 +195,55 @@ function showCartNotification(name) {
 
     }, 3500);
 }
+function displayCheckout() {
+
+    const container = document.getElementById("checkout-items");
+    const totalElement = document.getElementById("checkout-total");
+
+    if (!container || !totalElement) return;
+
+    container.innerHTML = "";
+
+    let total = 0;
+
+    if (cart.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty-cart">
+                <h2>Your cart is empty</h2>
+                <p>Go back to the shop and add a product.</p>
+            </div>
+        `;
+
+        totalElement.textContent = "0.00";
+
+        return;
+    }
+
+    cart.forEach(product => {
+
+        const productTotal = product.price * product.quantity;
+
+        total += productTotal;
+
+        container.innerHTML += `
+            <div class="checkout-item">
+
+                <div>
+                    <h3>${product.name}</h3>
+                    <p>Quantity: ${product.quantity}</p>
+                </div>
+
+                <div class="checkout-item-price">
+                    €${productTotal.toFixed(2)}
+                </div>
+
+            </div>
+        `;
+
+    });
+
+    totalElement.textContent = total.toFixed(2);
+}
+
+displayCheckout();
