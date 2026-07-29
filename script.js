@@ -255,15 +255,21 @@ function displayCheckout() {
 function placeOrder() {
 
     if (cart.length === 0) {
-
         alert("Your cart is empty!");
-
         return;
     }
 
-    let orderText = "🛒 **NEW ORDER**%0A%0A";
+    const name = document.getElementById("customer-name")?.value.trim();
+    const email = document.getElementById("customer-email")?.value.trim();
+    const discord = document.getElementById("discord-name")?.value.trim();
+
+    if (!name || !email || !discord) {
+        alert("Please fill in all your information.");
+        return;
+    }
 
     let total = 0;
+    let products = [];
 
     cart.forEach(product => {
 
@@ -271,44 +277,32 @@ function placeOrder() {
 
         total += productTotal;
 
-        orderText +=
-            `• ${product.name} × ${product.quantity} — €${productTotal.toFixed(2)}%0A`;
+        products.push({
+            name: product.name,
+            quantity: product.quantity,
+            price: product.price,
+            total: productTotal
+        });
     });
 
-    orderText += `%0A💰 **Total: €${total.toFixed(2)}**`;
+    const order = {
+        name: name,
+        email: email,
+        discord: discord,
+        products: products,
+        total: total,
+        date: new Date().toISOString()
+    };
 
-    /*
-     * We bewaren de bestelling lokaal.
-     * Zo kan de informatie beschikbaar blijven wanneer
-     * de klant terugkomt op de website.
-     */
+    localStorage.setItem("lastOrder", JSON.stringify(order));
 
-    localStorage.setItem(
-        "lastOrder",
-        JSON.stringify({
-            products: cart,
-            total: total
-        })
+    alert(
+        "Order prepared!\\n\\n" +
+        "Your order total is €" + total.toFixed(2) +
+        "\\n\\nDiscord will now open. Please click 💵 Buy and send your order information in the ticket."
     );
 
-    /*
-     * Open het Rimpllee Buy-ticketpaneel.
-     */
-
     window.open(discordBuyLink, "_blank");
-
-    /*
-     * Laat de klant weten wat hij moet doen.
-     */
-
-    setTimeout(() => {
-
-        alert(
-            "Your order is ready!\\n\\n" +
-            "Discord will open. Click the 💵 Buy button in our ticket panel and send the order details shown on this page."
-        );
-
-    }, 500);
 }
 
 
