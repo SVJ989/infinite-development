@@ -53,11 +53,11 @@
         </p>
 
 
-        <!-- ORDER NUMBER -->
+        <!-- ORDER ID -->
 
         <div class="payment-order">
 
-            <span>ORDER NUMBER</span>
+            <span>ORDER ID</span>
 
             <strong
                 id="payment-order-number"
@@ -124,9 +124,19 @@
        LOAD ORDER
     ========================= */
 
-    const order = JSON.parse(
-        localStorage.getItem("lastOrder")
-    );
+    let order = null;
+
+    try {
+
+        order = JSON.parse(
+            localStorage.getItem("lastOrder")
+        );
+
+    } catch (error) {
+
+        order = null;
+
+    }
 
 
     if (order) {
@@ -139,12 +149,12 @@
             "€" + Number(order.total).toFixed(2);
 
 
-        /* ORDER NUMBER */
+        /* ORDER ID */
 
         document.getElementById(
             "payment-order-number"
         ).textContent =
-            order.orderNumber || "Unknown";
+            order.orderId || "Unknown";
 
 
     } else {
