@@ -13,106 +13,155 @@
 
 <body>
 
-    <nav>
+<nav>
 
-        <div class="logo">
-            Infinite <span>Development</span>
+    <div class="logo">
+        Infinite <span>Development</span>
+    </div>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html">Cart</a></li>
+    </ul>
+
+    <a
+        class="discordBtn"
+        href="https://discord.gg/aWW6xKK9N"
+        target="_blank">
+        Join Discord
+    </a>
+
+</nav>
+
+
+<main class="payment-page">
+
+    <div class="payment-container">
+
+        <div class="payment-icon">
+            💳
         </div>
 
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="cart.html">Cart</a></li>
-        </ul>
+        <h1>
+            Complete your <span>payment</span>
+        </h1>
+
+        <p class="payment-description">
+            Your order has been received.
+            Complete your payment using Tikkie.
+        </p>
+
+
+        <!-- ORDER NUMBER -->
+
+        <div class="payment-order">
+
+            <span>ORDER NUMBER</span>
+
+            <strong
+                id="payment-order-number"
+                style="font-size: 20px;">
+                Loading...
+            </strong>
+
+        </div>
+
+
+        <!-- ORDER TOTAL -->
+
+        <div class="payment-order">
+
+            <span>ORDER TOTAL</span>
+
+            <strong id="payment-total">
+                €0,00
+            </strong>
+
+        </div>
+
+
+        <!-- TIKKIE -->
 
         <a
-            class="discordBtn"
-            href="https://discord.com/"
+            id="tikkie-button"
+            class="tikkie-button"
+            href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=xtg6xNR6SMCT4wDxq2_ktQ"
             target="_blank">
-            Discord
+
+            💳 Pay with Tikkie
+
         </a>
 
-    </nav>
+
+        <!-- DISCORD -->
+
+        <a
+            class="payment-discord"
+            href="https://discordapp.com/channels/1530386963364843632/1530837263158743080/1531283430321553550"
+            target="_blank">
+
+            🎫 Continue to Discord
+
+        </a>
 
 
-    <main class="payment-page">
+        <p class="payment-note">
 
-        <div class="payment-container">
+            After completing your payment,
+            continue to Discord to finish your order.
 
-            <div class="payment-icon">
-                💳
-            </div>
+        </p>
 
-            <h1>
-                Complete your <span>payment</span>
-            </h1>
+    </div>
 
-            <p class="payment-description">
-                Your order has been received.
-                Complete your payment using Tikkie.
-            </p>
+</main>
 
 
-            <div class="payment-order">
+<script>
 
-                <span>ORDER TOTAL</span>
+    /* =========================
+       LOAD ORDER
+    ========================= */
 
-                <strong id="payment-total">
-                    €0,00
-                </strong>
-
-            </div>
-
-
-            <!-- TIKKIE -->
-
-            <a
-                id="tikkie-button"
-                class="tikkie-button"
-                href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=xtg6xNR6SMCT4wDxq2_ktQ"
-                target="_blank">
-
-                💳 Pay with Tikkie
-
-            </a>
+    const order = JSON.parse(
+        localStorage.getItem("lastOrder")
+    );
 
 
-            <!-- DISCORD -->
+    if (order) {
 
-            <a
-                class="payment-discord"
-                href="https://discordapp.com/channels/1530386963364843632/1530837263158743080/1531283430321553550"
-                target="_blank">
+        /* ORDER TOTAL */
 
-                🎫 Continue to Discord
-
-            </a>
+        document.getElementById(
+            "payment-total"
+        ).textContent =
+            "€" + Number(order.total).toFixed(2);
 
 
-            <p class="payment-note">
-                After completing your payment, continue to Discord
-                to finish your order.
-            </p>
+        /* ORDER NUMBER */
 
-        </div>
-
-    </main>
+        document.getElementById(
+            "payment-order-number"
+        ).textContent =
+            order.orderNumber || "Unknown";
 
 
-    <script>
+    } else {
 
-        const order = JSON.parse(
-            localStorage.getItem("lastOrder")
-        );
+        document.getElementById(
+            "payment-order-number"
+        ).textContent =
+            "No order found";
 
-        if (order) {
+        document.getElementById(
+            "payment-total"
+        ).textContent =
+            "€0,00";
 
-            document.getElementById("payment-total").textContent =
-                "€" + Number(order.total).toFixed(2);
+    }
 
-        }
-
-    </script>
+</script>
 
 </body>
 
