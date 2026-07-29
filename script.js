@@ -294,11 +294,11 @@ function placeOrder() {
 
     localStorage.setItem("lastOrder", JSON.stringify(order));
 
-    alert(
-        "Order prepared!\\n\\n" +
-        "Your order total is €" + total.toFixed(2) +
-        "\\n\\nDiscord will now open. Please click 💵 Buy and send your order information in the ticket."
-    );
+  alert(
+    "Order prepared!\n\n" +
+    "Your order total is €" + total.toFixed(2) +
+    "\n\nDiscord will now open. Click the 💵 Buy button in our ticket panel and send your order information in the ticket."
+);
 
     window.open(discordBuyLink, "_blank");
 }
