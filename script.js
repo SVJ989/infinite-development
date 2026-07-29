@@ -12,12 +12,17 @@ try {
 
 
 /* =========================
-   ADD TO CART
+   ORDER ID
 ========================= */
 
 function generateOrderId() {
     return "ID-" + Date.now().toString().slice(-6);
 }
+
+
+/* =========================
+   ADD TO CART
+========================= */
 
 function addToCart(name, price) {
 
@@ -47,9 +52,7 @@ function addToCart(name, price) {
     }
 
     saveCart();
-
     updateCartCount();
-
     showCartNotification(name);
 }
 
@@ -436,8 +439,13 @@ async function placeOrder() {
 
     });
 
-    // AUTOMATIC ORDER ID
+
+    /* =========================
+       CREATE ORDER ID
+    ========================= */
+
     const orderId = generateOrderId();
+
 
     const order = {
 
@@ -457,6 +465,11 @@ async function placeOrder() {
             new Date().toISOString()
 
     };
+
+
+    /* =========================
+       SEND ORDER
+    ========================= */
 
     try {
 
@@ -482,13 +495,20 @@ async function placeOrder() {
             );
         }
 
+
+        /* SAVE ORDER */
+
         localStorage.setItem(
             "lastOrder",
             JSON.stringify(order)
         );
 
+
+        /* GO TO PAYMENT */
+
         window.location.href =
             "payment.html";
+
 
     } catch (error) {
 
