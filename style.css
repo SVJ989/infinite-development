@@ -1427,3 +1427,207 @@ footer {
         flex-direction: column;
     }
 }
+/* =========================
+   PAYMENT PAGE
+========================= */
+
+.payment-page {
+    min-height: calc(100vh - 90px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(30, 144, 255, 0.14),
+            transparent 45%
+        ),
+        #080808;
+}
+
+.payment-container {
+    width: 100%;
+    max-width: 520px;
+
+    padding: 45px;
+
+    text-align: center;
+
+    background: #101010;
+
+    border: 1px solid #222;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(30, 144, 255, 0.06);
+}
+
+.payment-icon {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 25px;
+
+    background: rgba(30, 144, 255, 0.12);
+
+    border: 1px solid rgba(30, 144, 255, 0.5);
+
+    border-radius: 50%;
+
+    font-size: 32px;
+}
+
+.payment-container h1 {
+    font-size: 34px;
+
+    margin-bottom: 15px;
+}
+
+.payment-container h1 span {
+    color: #1e90ff;
+}
+
+.payment-description {
+    color: #999;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+
+/* ORDER TOTAL */
+
+.payment-order {
+    padding: 20px;
+
+    margin-bottom: 25px;
+
+    background: #0b0b0b;
+
+    border: 1px solid #222;
+
+    border-radius: 10px;
+}
+
+.payment-order span {
+    display: block;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 7px;
+}
+
+.payment-order strong {
+    color: #1e90ff;
+
+    font-size: 28px;
+}
+
+
+/* TIKKIE BUTTON */
+
+.tikkie-button {
+    display: block;
+
+    width: 100%;
+
+    padding: 16px;
+
+    background: #1e90ff;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.tikkie-button:hover {
+    background: #1478d4;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(30, 144, 255, 0.25);
+}
+
+
+/* DISCORD */
+
+.payment-discord {
+    display: block;
+
+    margin-top: 12px;
+
+    padding: 14px;
+
+    background: #181818;
+
+    border: 1px solid #292929;
+
+    color: #ddd;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.payment-discord:hover {
+    border-color: #1e90ff;
+
+    color: #1e90ff;
+}
+
+
+/* NOTE */
+
+.payment-note {
+    margin-top: 22px;
+
+    color: #666;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .payment-container {
+        padding: 30px 22px;
+    }
+
+    .payment-container h1 {
+        font-size: 28px;
+    }
+
+}
