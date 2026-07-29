@@ -249,10 +249,10 @@ function displayCheckout() {
 /* =========================
    DISCORD ORDER
 ========================= */
+
 async function placeOrder() {
 
     if (cart.length === 0) {
-        alert("Your cart is empty!");
         return;
     }
 
@@ -261,7 +261,12 @@ async function placeOrder() {
     const discord = document.getElementById("discord-name")?.value.trim();
 
     if (!name || !email || !discord) {
-        alert("Please fill in all your information.");
+        showOrderPopup(
+            "Missing Information",
+            "Please fill in all your information before placing your order.",
+            null,
+            false
+        );
         return;
     }
 
@@ -297,11 +302,9 @@ async function placeOrder() {
             "https://infinite-order-api.soren2159.workers.dev",
             {
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify(order)
             }
         );
@@ -312,21 +315,22 @@ async function placeOrder() {
 
         localStorage.setItem("lastOrder", JSON.stringify(order));
 
-        alert(
-            "Order sent successfully!\\n\\n" +
-            "Total: €" + total.toFixed(2) +
-            "\\n\\nPlease continue in Discord to complete your payment."
+        showOrderPopup(
+            "Order Successful!",
+            "Your order has been received. Continue to Discord to complete your purchase.",
+            total,
+            true
         );
-
-        window.open(discordBuyLink, "_blank");
 
     } catch (error) {
 
         console.error(error);
 
-        alert(
-            "Something went wrong while sending your order.\\n\\n" +
-            "Please try again or contact us on Discord."
+        showOrderPopup(
+            "Something went wrong",
+            "We couldn't send your order. Please try again or contact us on Discord.",
+            null,
+            false
         );
     }
 }
