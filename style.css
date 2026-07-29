@@ -677,3 +677,186 @@ footer {
     }
 
 }
+/* =========================
+   SHOPPING CART
+========================= */
+
+.cart-page {
+    min-height: calc(100vh - 90px);
+
+    padding: 90px 10%;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(30, 144, 255, 0.10),
+            transparent 45%
+        ),
+        #080808;
+}
+
+.cart-page h1 {
+    text-align: center;
+
+    font-size: 52px;
+
+    margin-bottom: 50px;
+}
+
+.cart-page h1 span {
+    color: #1e90ff;
+}
+
+#cart-items {
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+.cart-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 25px;
+
+    margin-bottom: 15px;
+
+    background: #111;
+
+    border: 1px solid #202020;
+
+    border-radius: 10px;
+}
+
+.cart-item > div:first-child {
+    flex: 1;
+}
+
+.cart-item h3 {
+    margin-bottom: 7px;
+}
+
+.cart-item p {
+    color: #888;
+}
+
+.quantity {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.quantity button {
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid #333;
+
+    background: #181818;
+
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.quantity button:hover {
+    border-color: #1e90ff;
+}
+
+.cart-item-price {
+    color: #1e90ff;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+.remove-btn {
+    border: none;
+
+    background: transparent;
+
+    color: #888;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+.remove-btn:hover {
+    color: #ff4444;
+}
+
+.cart-total {
+    max-width: 900px;
+
+    margin: 30px auto;
+
+    text-align: right;
+
+    font-size: 26px;
+
+    font-weight: bold;
+}
+
+.cart-total span {
+    color: #1e90ff;
+}
+
+.cart-buttons {
+    max-width: 900px;
+
+    margin: 30px auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.cart-buttons button {
+    border: none;
+
+    cursor: pointer;
+}
+
+.empty-cart {
+    text-align: center;
+
+    padding: 60px;
+
+    background: #111;
+
+    border: 1px solid #202020;
+
+    border-radius: 12px;
+}
+
+.empty-cart p {
+    color: #888;
+
+    margin-top: 10px;
+}
+
+
+@media (max-width: 700px) {
+
+    .cart-item {
+        flex-wrap: wrap;
+    }
+
+    .cart-buttons {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+}
