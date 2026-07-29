@@ -1,3 +1,4 @@
+```js
 const discordBuyLink = "https://discordapp.com/channels/1530386963364843632/1530837263158743080/1531283430321553550";
 
 let cart = [];
@@ -435,7 +436,12 @@ async function placeOrder() {
 
     });
 
+    // AUTOMATIC ORDER ID
+    const orderId = generateOrderId();
+
     const order = {
+
+        orderId: orderId,
 
         name: name,
 
@@ -653,3 +659,4 @@ document.addEventListener(
 
     }
 );
+```
