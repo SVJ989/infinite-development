@@ -20,7 +20,7 @@ function addToCart(name, price) {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    alert(name + " has been added to your cart!");
+    showCartNotification(name);
 
     updateCartCount();
 }
@@ -161,3 +161,37 @@ function checkout() {
 
 displayCart();
 updateCartCount();
+
+function showCartNotification(name) {
+
+    const notification = document.createElement("div");
+
+    notification.className = "cart-notification";
+
+    notification.innerHTML = `
+        <div class="notification-icon">✓</div>
+
+        <div>
+            <strong>Added to cart</strong>
+            <p>${name}</p>
+        </div>
+
+        <a href="cart.html">View Cart</a>
+    `;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add("show");
+    }, 10);
+
+    setTimeout(() => {
+
+        notification.classList.remove("show");
+
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+
+    }, 3500);
+}
