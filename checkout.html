@@ -1,16 +1,23 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Checkout | Infinite Development</title>
+```
+<title>Checkout | Infinite Development</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
+
+```
+<!-- NAVBAR -->
 
 <nav>
 
@@ -19,31 +26,51 @@
     </div>
 
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="cart.html">Cart</a></li>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="shop.html">Shop</a>
+        </li>
+
+        <li>
+            <a href="cart.html">Cart</a>
+        </li>
     </ul>
 
-    <a href="https://discord.gg/aWW6xKK9N"
-       class="discordBtn"
-       target="_blank">
+    <a
+        href="https://discord.gg/aWW6xKK9N"
+        class="discordBtn"
+        target="_blank"
+        rel="noopener noreferrer">
+
         Join Discord
+
     </a>
 
 </nav>
 
 
+<!-- CHECKOUT -->
+
 <section class="checkout-page">
 
-    <h1>Complete Your <span>Order</span></h1>
+    <h1>
+        Complete Your <span>Order</span>
+    </h1>
+
 
     <div class="checkout-box">
 
         <h2>Your Information</h2>
 
+
         <form id="checkout-form">
 
-            <label>
+            <!-- NAME -->
+
+            <label for="customer-name">
                 Name
             </label>
 
@@ -55,7 +82,9 @@
             >
 
 
-            <label>
+            <!-- EMAIL -->
+
+            <label for="customer-email">
                 Email
             </label>
 
@@ -67,7 +96,9 @@
             >
 
 
-            <label>
+            <!-- DISCORD -->
+
+            <label for="discord-name">
                 Discord Username
             </label>
 
@@ -79,57 +110,87 @@
             >
 
 
-            <h2>Order</h2>
+            <!-- ORDER -->
+
+            <h2>
+                Order
+            </h2>
 
             <div id="checkout-items"></div>
 
+
+            <!-- TOTAL -->
+
             <div class="checkout-total">
-                Total: €<span id="checkout-total">0.00</span>
+
+                <span>
+                    Total:
+                </span>
+
+                <span>
+                    €<span id="checkout-total">0.00</span>
+                </span>
+
             </div>
 
-    <div class="payment-section">
 
-    <h2>Payment Method</h2>
+            <!-- PAYMENT METHOD -->
 
-    <div class="payment-options">
+            <div class="payment-section">
 
-        <label class="payment-option">
+                <h2>
+                    Payment Method
+                </h2>
 
-            <input
-                type="radio"
-                name="payment"
-                value="tikkie"
-                checked
-            >
 
-            <div>
-                <strong>💳 Tikkie</strong>
-                <span>Pay securely using Tikkie</span>
+                <div class="payment-options">
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="tikkie"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>
+                                💳 Tikkie
+                            </strong>
+
+                            <span>
+                                Pay securely using Tikkie
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+                <p class="manual-payment-info">
+
+                    After placing your order, you will be
+                    redirected to the Tikkie payment page.
+
+                </p>
+
             </div>
 
-        </label>
 
-    </div>
+            <!-- PLACE ORDER -->
 
-    <p class="manual-payment-info">
-        After placing your order, you will be redirected
-        to the Tikkie payment page.
-    </p>
+            <button
+                type="button"
+                class="checkout-btn"
+                onclick="placeOrder()">
 
-</div>
+                Place Order
 
-        
-
-    </div>
-
-</div>
-
-<button type="button" class="checkout-btn" onclick="placeOrder()">
-    Place Order
-</button>
-            <p class="manual-payment-info">
-    After placing your order, we will contact you with payment instructions.
-</p>
+            </button>
 
         </form>
 
@@ -138,7 +199,11 @@
 </section>
 
 
+<!-- JAVASCRIPT -->
+
 <script src="script.js"></script>
+```
 
 </body>
+
 </html>
