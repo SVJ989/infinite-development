@@ -87,9 +87,51 @@
                 Total: €<span id="checkout-total">0.00</span>
             </div>
 
-            <button type="submit" class="checkout-btn">
-                Continue to Payment
-            </button>
+           <div class="payment-section">
+
+    <h2>Choose Payment Method</h2>
+
+    <div class="payment-options">
+
+        <label class="payment-option">
+            <input type="radio" name="payment" value="ideal" required>
+            <div>
+                <strong>iDEAL</strong>
+                <span>Pay with your bank</span>
+            </div>
+        </label>
+
+        <label class="payment-option">
+            <input type="radio" name="payment" value="bancontact">
+            <div>
+                <strong>Bancontact</strong>
+                <span>Pay securely with Bancontact</span>
+            </div>
+        </label>
+
+        <label class="payment-option">
+            <input type="radio" name="payment" value="card">
+            <div>
+                <strong>Credit / Debit Card</strong>
+                <span>Visa, Mastercard and more</span>
+            </div>
+        </label>
+
+        <label class="payment-option">
+            <input type="radio" name="payment" value="paypal">
+            <div>
+                <strong>PayPal</strong>
+                <span>Pay securely with PayPal</span>
+            </div>
+        </label>
+
+    </div>
+
+</div>
+
+<button type="submit" class="checkout-btn">
+    Continue to Payment
+</button>
 
         </form>
 
