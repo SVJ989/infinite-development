@@ -1883,3 +1883,29 @@ footer {
     }
 
 }
+/* =========================
+   CONTACT / CTA FIX
+========================= */
+
+.contact {
+    width: 100%;
+    padding: 100px 10%;
+    text-align: center;
+    background: #0b0b0b;
+    border-top: 1px solid #181818;
+}
+
+.contact h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.contact .section-subtitle {
+    margin-bottom: 30px;
+    color: #999;
+}
+
+.contact .btn {
+    display: inline-block;
+}
