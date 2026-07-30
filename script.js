@@ -241,38 +241,31 @@ function checkout() {
 /* =========================
    NOTIFICATION
 ========================= */
-
 function showCartNotification(name) {
 
-    const notification =
-        document.createElement("div");
+    const notification = document.createElement("div");
 
-    notification.className =
-        "cart-notification";
+    notification.className = "cart-notification";
 
     notification.innerHTML = `
-
         <div class="notification-icon">
             ✓
         </div>
 
-        <div>
+        <div class="notification-content">
             <strong>Added to cart</strong>
-            <p>${name}</p>
+            <span>${name}</span>
         </div>
 
-        <a href="cart.html">
+        <a href="cart.html" class="notification-cart">
             View Cart
         </a>
-
     `;
 
     document.body.appendChild(notification);
 
     setTimeout(() => {
-
         notification.classList.add("show");
-
     }, 10);
 
     setTimeout(() => {
@@ -280,13 +273,10 @@ function showCartNotification(name) {
         notification.classList.remove("show");
 
         setTimeout(() => {
-
             notification.remove();
-
         }, 300);
 
-    }, 3500);
-
+    }, 3000);
 }
 
 
