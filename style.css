@@ -1722,3 +1722,164 @@ footer {
 .notification-cart:hover {
     text-decoration: underline;
 }
+/* =========================
+   REVIEWS PAGE
+========================= */
+
+.reviews-page {
+    padding: 90px 10% 110px;
+    background: #0b0b0b;
+}
+
+.reviews-header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.reviews-header h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.reviews-header p {
+    color: #888;
+    font-size: 16px;
+}
+
+
+/* REVIEW GRID */
+
+.review-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* REVIEW CARD */
+
+.review-card {
+    padding: 28px;
+
+    background: #111;
+
+    border: 1px solid #202020;
+
+    border-radius: 14px;
+
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #1e90ff;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(30, 144, 255, 0.05);
+}
+
+
+/* CUSTOMER */
+
+.review-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+.review-avatar {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(30, 144, 255, 0.12);
+
+    border: 1px solid rgba(30, 144, 255, 0.35);
+
+    border-radius: 50%;
+
+    color: #1e90ff;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.review-top h3 {
+    font-size: 16px;
+
+    margin-bottom: 4px;
+}
+
+.review-top span {
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* STARS */
+
+.review-stars {
+    color: #1e90ff;
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 17px;
+}
+
+
+/* TEXT */
+
+.review-card p {
+    color: #aaa;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 1000px) {
+
+    .review-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .reviews-page {
+        padding: 70px 6% 90px;
+    }
+
+    .reviews-header h2 {
+        font-size: 30px;
+    }
+
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
