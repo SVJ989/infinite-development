@@ -1909,3 +1909,140 @@ footer {
 .contact .btn {
     display: inline-block;
 }
+/* =========================
+   PROFESSIONAL SERVICES
+========================= */
+
+.services-page {
+    padding: 90px 10% 110px;
+    background: #0b0b0b;
+}
+
+.services-intro {
+    max-width: 750px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.services-intro h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.services-intro h2 span {
+    color: #1e90ff;
+}
+
+.services-intro p {
+    color: #999;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+
+    padding: 35px;
+
+    background: #111;
+
+    border: 1px solid #202020;
+    border-radius: 14px;
+
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+    border-color: #1e90ff;
+    box-shadow: 0 15px 40px rgba(30, 144, 255, 0.08);
+}
+
+.service-icon {
+    font-size: 45px;
+    margin-bottom: 22px;
+}
+
+.service-card h3 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.service-card > p {
+    color: #999;
+    line-height: 1.65;
+    min-height: 80px;
+}
+
+.service-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.service-card li {
+    color: #ccc;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.service-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: auto;
+    padding-top: 20px;
+
+    border-top: 1px solid #222;
+}
+
+.service-bottom span {
+    color: #1e90ff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 1000px) {
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 650px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .services-page {
+        padding: 70px 5%;
+    }
+
+    .services-intro h2 {
+        font-size: 30px;
+    }
+
+    .service-card {
+        padding: 28px;
+    }
+
+    .service-bottom {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .service-bottom .product-btn {
+        text-align: center;
+    }
+
+}
