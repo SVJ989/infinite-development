@@ -1,22 +1,6 @@
 const discordBuyLink = "https://discordapp.com/channels/1530386963364843632/1530837263158743080/1531283430321553550";
 
-let cart = [];
-
-try {
-    cart = JSON.parse(localStorage.getItem("cart")) || [];
-} catch (error) {
-    cart = [];
-    localStorage.removeItem("cart");
-}
-
-
-/* =========================
-   ORDER ID
-========================= */
-
-function generateOrderId() {
-    return "ID-" + Date.now().toString().slice(-6);
-}
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
 /* =========================
@@ -25,26 +9,19 @@ function generateOrderId() {
 
 function addToCart(name, price) {
 
-    price = Number(price);
-
-    if (!name || isNaN(price)) {
-        console.error("Invalid product:", name, price);
-        return;
-    }
-
     const existingProduct = cart.find(
         product => product.name === name
     );
 
     if (existingProduct) {
 
-        existingProduct.quantity += 1;
+        existingProduct.quantity++;
 
     } else {
 
         cart.push({
             name: name,
-            price: price,
+            price: Number(price),
             quantity: 1
         });
 
@@ -66,6 +43,7 @@ function saveCart() {
         "cart",
         JSON.stringify(cart)
     );
+
 }
 
 
@@ -83,6 +61,7 @@ function removeFromCart(name) {
 
     displayCart();
     updateCartCount();
+
 }
 
 
@@ -111,6 +90,7 @@ function changeQuantity(name, amount) {
 
     displayCart();
     updateCartCount();
+
 }
 
 
@@ -164,7 +144,7 @@ function displayCart() {
         item.innerHTML = `
 
             <div>
-                <h3>${escapeHTML(product.name)}</h3>
+                <h3>${product.name}</h3>
                 <p>€${Number(product.price).toFixed(2)} each</p>
             </div>
 
@@ -172,15 +152,17 @@ function displayCart() {
 
                 <button
                     type="button"
-                    onclick="changeQuantity('${escapeAttribute(product.name)}', -1)">
+                    onclick="changeQuantity('${product.name}', -1)">
                     −
                 </button>
 
-                <span>${product.quantity}</span>
+                <span>
+                    ${product.quantity}
+                </span>
 
                 <button
                     type="button"
-                    onclick="changeQuantity('${escapeAttribute(product.name)}', 1)">
+                    onclick="changeQuantity('${product.name}', 1)">
                     +
                 </button>
 
@@ -193,18 +175,23 @@ function displayCart() {
             <button
                 type="button"
                 class="remove-btn"
-                onclick="removeFromCart('${escapeAttribute(product.name)}')">
+                onclick="removeFromCart('${product.name}')">
                 🗑️
             </button>
+
         `;
 
         container.appendChild(item);
+
     });
 
     if (totalElement) {
+
         totalElement.textContent =
             total.toFixed(2);
+
     }
+
 }
 
 
@@ -228,6 +215,7 @@ function updateCartCount() {
     });
 
     countElement.textContent = count;
+
 }
 
 
@@ -246,6 +234,7 @@ function checkout() {
 
     window.location.href =
         "checkout.html";
+
 }
 
 
@@ -269,7 +258,7 @@ function showCartNotification(name) {
 
         <div>
             <strong>Added to cart</strong>
-            <p>${escapeHTML(name)}</p>
+            <p>${name}</p>
         </div>
 
         <a href="cart.html">
@@ -297,6 +286,7 @@ function showCartNotification(name) {
         }, 300);
 
     }, 3500);
+
 }
 
 
@@ -348,7 +338,8 @@ function displayCheckout() {
             <div class="checkout-item">
 
                 <div>
-                    <h3>${escapeHTML(product.name)}</h3>
+                    <h3>${product.name}</h3>
+
                     <p>
                         Quantity: ${product.quantity}
                     </p>
@@ -361,10 +352,12 @@ function displayCheckout() {
             </div>
 
         `;
+
     });
 
     totalElement.textContent =
         total.toFixed(2);
+
 }
 
 
@@ -401,14 +394,12 @@ async function placeOrder() {
 
     if (!name || !email || !discord) {
 
-        showOrderPopup(
-            "Missing Information",
-            "Please fill in all your information before placing your order.",
-            null,
-            false
+        alert(
+            "Please fill in all your information."
         );
 
         return;
+
     }
 
     let total = 0;
@@ -439,16 +430,7 @@ async function placeOrder() {
     });
 
 
-    /* =========================
-       CREATE ORDER ID
-    ========================= */
-
-    const orderId = generateOrderId();
-
-
     const order = {
-
-        orderId: orderId,
 
         name: name,
 
@@ -465,10 +447,6 @@ async function placeOrder() {
 
     };
 
-
-    /* =========================
-       SEND ORDER
-    ========================= */
 
     try {
 
@@ -489,178 +467,31 @@ async function placeOrder() {
             );
 
         if (!response.ok) {
+
             throw new Error(
                 "Order failed"
             );
+
         }
-
-
-        /* SAVE ORDER */
 
         localStorage.setItem(
             "lastOrder",
             JSON.stringify(order)
         );
 
-
-        /* GO TO PAYMENT */
-
         window.location.href =
             "payment.html";
-
 
     } catch (error) {
 
         console.error(error);
 
-        showOrderPopup(
-            "Something went wrong",
-            "We couldn't send your order. Please try again or contact us on Discord.",
-            null,
-            false
+        alert(
+            "Something went wrong. Please try again."
         );
 
     }
-}
 
-
-/* =========================
-   POPUP
-========================= */
-
-function showOrderPopup(
-    title,
-    message,
-    total,
-    success
-) {
-
-    const oldPopup =
-        document.querySelector(
-            ".order-popup-overlay"
-        );
-
-    if (oldPopup) {
-        oldPopup.remove();
-    }
-
-    const popup =
-        document.createElement("div");
-
-    popup.className =
-        "order-popup-overlay";
-
-    popup.innerHTML = `
-
-        <div class="order-popup">
-
-            <div class="order-popup-icon">
-                ${success ? "✓" : "!"}
-            </div>
-
-            <h2>${title}</h2>
-
-            <p>${message}</p>
-
-            ${
-                total !== null
-                ? `
-                    <div class="order-popup-total">
-
-                        <span>
-                            ORDER TOTAL
-                        </span>
-
-                        <strong>
-                            €${Number(total).toFixed(2)}
-                        </strong>
-
-                    </div>
-                `
-                : ""
-            }
-
-            <div class="order-popup-buttons">
-
-                ${
-                    success
-                    ? `
-                        <button
-                            type="button"
-                            class="order-popup-discord"
-                            onclick="window.open(discordBuyLink, '_blank')">
-                            Continue to Discord
-                        </button>
-                    `
-                    : ""
-                }
-
-                <button
-                    type="button"
-                    class="order-popup-close"
-                    onclick="closeOrderPopup()">
-
-                    ${success ? "Close" : "Try Again"}
-
-                </button>
-
-            </div>
-
-        </div>
-    `;
-
-    document.body.appendChild(popup);
-
-    setTimeout(() => {
-
-        popup.classList.add("show");
-
-    }, 10);
-}
-
-
-/* =========================
-   CLOSE POPUP
-========================= */
-
-function closeOrderPopup() {
-
-    const popup =
-        document.querySelector(
-            ".order-popup-overlay"
-        );
-
-    if (!popup) return;
-
-    popup.classList.remove("show");
-
-    setTimeout(() => {
-
-        popup.remove();
-
-    }, 300);
-}
-
-
-/* =========================
-   SECURITY HELPERS
-========================= */
-
-function escapeHTML(text) {
-
-    return String(text)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
-
-function escapeAttribute(text) {
-
-    return String(text)
-        .replace(/\\/g, "\\\\")
-        .replace(/'/g, "\\'");
 }
 
 
@@ -673,9 +504,10 @@ document.addEventListener(
     () => {
 
         displayCart();
+
         updateCartCount();
+
         displayCheckout();
 
     }
 );
-```
