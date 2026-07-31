@@ -37,10 +37,14 @@ nav {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 700;
-    white-space: nowrap;
+    width: 150px;
     margin-right: 60px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    display: block;
 }
 
 .logo span {
